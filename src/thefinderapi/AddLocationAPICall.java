@@ -25,8 +25,10 @@ public class AddLocationAPICall {
         url = url+place+"/"+latitude+"/"+longitude+"/"+userID+"/"+auth;
         String response = SC.downloadUrl("PUT",url);
         
-        Gson gson = new Gson();
-        Response r = gson.fromJson(response, Response.class);
-        return r;
+        if(response!= null){
+            Gson gson = new Gson();
+            Response r = gson.fromJson(response, Response.class);
+            return r;
+        }else return null;
     }
 }

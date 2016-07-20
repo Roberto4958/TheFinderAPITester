@@ -24,9 +24,11 @@ public class FindLocationAPICall {
         String url = "http://thefinder-1.s4c2qwepti.us-west-2.elasticbeanstalk.com/webresources/findLocation/";
         String response = SC.downloadUrl("GET", url+id+"/"+auth);
         
-        Gson gson = new Gson();
-        LocationResponse r = gson.fromJson(response, LocationResponse.class);
-        return r;
+        if(response!= null){
+            Gson gson = new Gson();
+            LocationResponse r = gson.fromJson(response, LocationResponse.class);
+            return r;
+        }else return null;
     }
     
 }

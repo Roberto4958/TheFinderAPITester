@@ -23,8 +23,11 @@ public class LogOutAPICall {
         String url = "http://thefinder-1.s4c2qwepti.us-west-2.elasticbeanstalk.com/webresources/logOut/";
         String response = SC.downloadUrl("POST", url+id+"/"+auth);
         
-        Gson gson = new Gson();
-        Response r = gson.fromJson(response, Response.class);
-        return r;
+        if(response!= null){
+            Gson gson = new Gson();
+            Response r = gson.fromJson(response, Response.class);
+            return r;
+        }
+        else return null;
     }
 }

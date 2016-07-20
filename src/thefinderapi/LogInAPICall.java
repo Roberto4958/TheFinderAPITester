@@ -23,8 +23,11 @@ public class LogInAPICall {
         String url = "http://thefinder-1.s4c2qwepti.us-west-2.elasticbeanstalk.com/webresources/logIn/";
         String response = SC.downloadUrl("POST", url+userName+"/"+password);
         
-        Gson gson =  new Gson();
-        UserResponse r = gson.fromJson(response, UserResponse.class);
-        return r;
+        if(response!= null){
+            Gson gson =  new Gson();
+            UserResponse r = gson.fromJson(response, UserResponse.class);
+            return r;
+        }
+        else return null;
     }
 }

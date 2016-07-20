@@ -28,8 +28,9 @@ public class Tester {
     
     public static void main(String args[]) throws IOException{
        
-        FindLocationAPICall SC = new  FindLocationAPICall();
-        LocationResponse result  = SC.getResponse(1, "g6m5d7318a3mn3fh47p62njxd9sfvm");
-        System.out.println(result.status);
+        LogInAPICall SC = new  LogInAPICall();
+        UserResponse result  = SC.getResponse("user1", "pass1");
+        if(result != null)System.out.println(result.status);
+        else System.out.println("Response was null");
     }
 }
