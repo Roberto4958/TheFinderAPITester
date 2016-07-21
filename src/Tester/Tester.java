@@ -28,9 +28,8 @@ public class Tester {
     
     public static void main(String args[]) throws IOException{
        
-        LogInAPICall SC = new  LogInAPICall();
-        UserResponse result  = SC.getResponse("user1", "pass1");
-        if(result != null)System.out.println(result.status);
-        else System.out.println("Response was null");
+        LogOutAPICall SC = new  LogOutAPICall();
+        Response result  = SC.getResponse(1, "q1poy7c28ne7hs7adadz1l4ozturpn");
+        System.out.println(result.status);
     }
 }

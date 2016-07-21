@@ -24,10 +24,9 @@ public class CreateAccountAPICall {
         url = url+userName+"/"+password+"/"+firstName+"/"+lastName;
         String response = SC.downloadUrl("PUT", url);
         
-        if(response!= null){
-            Gson gson = new Gson();
-            UserResponse  r = gson.fromJson(response, UserResponse.class);
-            return r;
-        }else return null;
+        Gson gson = new Gson();
+        UserResponse  r = gson.fromJson(response, UserResponse.class);
+        return r;
+        
     }
 }
