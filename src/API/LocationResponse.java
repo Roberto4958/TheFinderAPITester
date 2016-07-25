@@ -3,22 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ResponseData;
+package API;
 
 import DataModel.Location;
-import java.util.ArrayList;
 
 /**
  *
  * @author cancola
  */
-public class HistoryResponse extends Response{
+public class LocationResponse extends Response{
+    public Location result;
 
-    public ArrayList<Location> result;
-
-    public HistoryResponse(ArrayList<Location> l, String s){
-
+    public LocationResponse(Location l, String s){
         super(s);
         result = l;
-    }
+    } 
 }

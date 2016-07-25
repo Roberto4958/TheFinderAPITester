@@ -6,19 +6,8 @@
 package Tester;
 
 import DataModel.User;
-import ResponseData.HistoryResponse;
-import ResponseData.LocationResponse;
-import ResponseData.Response;
-import ResponseData.UserResponse;
-import java.io.IOException;
-import thefinderapi.AddLocationAPICall;
-import thefinderapi.CreateAccountAPICall;
-import thefinderapi.FindLocationAPICall;
-import thefinderapi.HistoryAPICall;
-import thefinderapi.LogInAPICall;
-import thefinderapi.LogOutAPICall;
-import thefinderapi.RemoveAPICall;
-import thefinderapi.ServerConnection;
+import API.APIcomm;
+
 
 /**
  *
@@ -26,10 +15,11 @@ import thefinderapi.ServerConnection;
  */
 public class Tester {
     
-    public static void main(String args[]) throws IOException{
+    public static void main(String args[]){
        
-        LogOutAPICall SC = new  LogOutAPICall();
-        Response result  = SC.getResponse(1, "q1poy7c28ne7hs7adadz1l4ozturpn");
-        System.out.println(result.status);
+        APIcomm myComm = new APIcomm();
+        User user = myComm.LogIn("user1", "pass1");
+        System.out.println(user.firstName + " " + user.lastName);
+       
     }
 }

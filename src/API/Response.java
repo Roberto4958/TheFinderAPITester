@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ResponseData;
-
-import DataModel.User;
+package API;
 
 /**
  *
  * @author cancola
  */
-public class UserResponse extends Response{
+public class Response {
     
-    public User results;
+    public String status;
 
-    public UserResponse(User u, String s){
-        super(s);
-        results = u;
+    public Response(String s){
+        status = s;
     }
 }
