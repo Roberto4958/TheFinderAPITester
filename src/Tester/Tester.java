@@ -18,8 +18,13 @@ public class Tester {
     public static void main(String args[]){
        
         APIcomm myComm = new APIcomm();
-        User user = myComm.LogIn("user1", "pass1");
-        System.out.println(user.firstName + " " + user.lastName);
-       
+        User user = null ;
+        
+        user = myComm.LogIn("user1", "pass1");
+        System.out.println("Testing user login for user1. Name is: " + user.firstName + " " + user.lastName);
+         
+        //user = myComm.createAccount(asdfasdasf);
+        //System.out.println("Testing user login for user1. Name is: " + user.firstName + " " + user.lastName);
+        
     }
 }
