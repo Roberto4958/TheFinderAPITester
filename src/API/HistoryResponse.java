@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class HistoryResponse extends Response{
 
     public ArrayList<Location> result;
-
+    
     public HistoryResponse(ArrayList<Location> l, String s){
-
+        
         super(s);
-        result = l;
+        result = l;      
     }
 }
