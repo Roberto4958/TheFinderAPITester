@@ -23,7 +23,7 @@ public class Tester {
         User user = null ;
         Location location;
         
-        user = myComm.createAccount("user318", "pass", "Bob", "Smith");
+        user = myComm.createAccount("user320", "pass", "Bob", "Smith");
         System.out.println("Testing create account. New user Name is "+user.userName+"\n");
         
         user = myComm.logIn("user1", "pass1");

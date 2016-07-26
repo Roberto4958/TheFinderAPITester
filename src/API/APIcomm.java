@@ -43,7 +43,7 @@ public class APIcomm {
         
         if (r.status.equals("OK"))
         {
-            return r.results;
+            return r.userInfo;
         }
         else if (r.status.equals("ERROR"))
         {
@@ -67,7 +67,7 @@ public class APIcomm {
         
         UserResponse r = g.fromJson(response, UserResponse.class);
         if(r.status.equals("OK")){
-            return r.results;
+            return r.userInfo;
         }
         else if(r.status.equals("ERROR")){
             return null;
@@ -109,7 +109,7 @@ public class APIcomm {
         
         LocationResponse r = g.fromJson(response, LocationResponse.class);
         if(r.status.equals("OK")){
-            return r.result;
+            return r.locationInfo;
         }
         else if(r.status.equals("TOKENCLEARED")){
             return null;
@@ -150,7 +150,7 @@ public class APIcomm {
         HistoryResponse r = g.fromJson(response, HistoryResponse.class);
         
         if(r.status.equals("OK")){
-            return r.result;
+            return r.UserLocations;
         }
         else if(r.status.equals("TOKENCLEARED")){
             return null;
