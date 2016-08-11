@@ -24,7 +24,12 @@ public class Tester {
         Location location;
         
         user = myComm.createAccount("user320", "pass", "Bob", "Smith");
-        System.out.println("Testing create account. New user Name is "+user.userName+"\n");
+        try{
+            System.out.println("Testing create account. New user Name is "+user.userName+"\n");
+        }
+        catch(Exception e){
+            System.out.println("That userName is alrady taken, please use a deffrent userName");
+        }
         
         user = myComm.logIn("user1", "pass1");
         System.out.println("Testing user login for user1. Name is: " + user.firstName + " " + user.lastName+"\n");
