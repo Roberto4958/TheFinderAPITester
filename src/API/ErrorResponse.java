@@ -6,8 +6,9 @@
 package API;
 
 /**
+ * ErrorResponse stores the error type, used to warn the frontend to avoid crashing the app.
  *
- * @author cancola
+ * @author Roberto Aguilar
  */
 public class ErrorResponse {
     public String errorType;

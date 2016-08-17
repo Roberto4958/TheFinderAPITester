@@ -5,7 +5,11 @@
  */
 package DataModel;
 
-
+/**
+ * Location is responsible for holding all of the attributes of a location.
+ * 
+ * @author Roberto Aguilar
+ */
 public class Location{
     public double latitude;
     public double longtitude;

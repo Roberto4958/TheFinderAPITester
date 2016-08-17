@@ -22,14 +22,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * APIcomm is responsible for making a http request. 
  *
- * @author cancola
+ * @author Roberto Aguilar
  */
 public class APIcomm {
     
     private String baseURL = "http://thefinder-1.s4c2qwepti.us-west-2.elasticbeanstalk.com/webresources";
     private String RequestType;     
     
+    /**
+     * @desc: makes a http request to log in
+     * @param userName users - userName, password - user password
+     * @return a user object 
+     */
     public User logIn(String userName, String password){
         String URL = baseURL + "/logIn/"+userName+"/"+password;
         RequestType = "POST";
@@ -55,6 +61,11 @@ public class APIcomm {
         }
     }
     
+    /**
+     * @desc makes a http request to create a new account.
+     * @param userName - users username, password - users password, firstName - users first name, lastName users last name,
+     * @return User object
+     */
     public User createAccount(String userName, String password, String firstName, String lastName){
         
         String URL = baseURL+"/createAccount/"+userName+"/"+password+"/"+firstName+"/"+lastName;
@@ -75,6 +86,10 @@ public class APIcomm {
         else return null;
     }
     
+    /**
+     * @desc makes a http request to add a Location
+     * @param userID - users id, latitude - users latitude , longitude - users longitude, place - name of location, auth - users authentication token
+     */
     public void addLocation(int userID, double latitude, double longitude, String place, String auth){
         String URL = baseURL+"/addNewLocation/"+place+"/"+latitude+"/"+longitude+"/"+userID+"/"+auth;
         RequestType = "PUT";
@@ -99,6 +114,11 @@ public class APIcomm {
         } 
     }
     
+    /**
+     * @desc makes a http request to find users last location
+     * @param userID - users id, auth - users authentication token
+     * @return 
+     */
     public Location findLocation(int userID, String auth){
         String URL = baseURL+"/findLocation/"+userID+"/"+auth;
         RequestType= "GET";
@@ -122,6 +142,10 @@ public class APIcomm {
         }
     }
     
+    /**
+     * @desc makes a http request to delete user location
+     * @param userID - users id, locationID - location id of location that user wants to delete, auth - users authentication token
+     */
     public void deleteLocation(int userID, int locationID, String auth){
        String URL = baseURL+"/deleteLocation/"+userID+"/"+locationID+"/"+auth;
        RequestType = "DELETE";
@@ -140,6 +164,11 @@ public class APIcomm {
         }
     }
     
+    /**
+     * @desc makes a http request to get all of users locations
+     * @param userID - users id, auth - users authentication token
+     * @return an ArraysList of Locations
+     */
     public ArrayList<Location> getHistory(int userID, String auth){
         String URL = baseURL+"/history/"+userID+"/"+auth;
         RequestType = "GET";
@@ -163,6 +192,10 @@ public class APIcomm {
         }
     }
     
+    /**
+     * @desc makes an http request to logout user
+     * @param userID - users id, auth - users authentication token
+     */
     public void logOut(int userID, String auth){
         String URL = baseURL+"/logOut/"+userID+"/"+auth;
         RequestType = "POST";
@@ -181,6 +214,11 @@ public class APIcomm {
         }
     }
     
+    /**
+     * @desc makes a http request based on the method that called it
+     * @param myurl - url used to make the http request
+     * @return http response. 
+     */
     private String executeURL(String myurl) {
         InputStream is = null;
 
@@ -199,6 +237,7 @@ public class APIcomm {
             String contentAsString = readIS(is);
             return contentAsString;
         }  
+        //catch error and make it into a JSON to make it easy to handle in my aplication
         catch (MalformedURLException ex) {
             Logger.getLogger(APIcomm.class.getName()).log(Level.SEVERE, null, ex);
             Gson g = new Gson();
@@ -231,6 +270,11 @@ public class APIcomm {
         }  
     }
     
+    /**
+     * @desc converts a input stream to a String.
+     * @param stream - http response 
+     * @return http response in a String
+     */
     private String readIS(InputStream stream) throws IOException, UnsupportedEncodingException {
 
         Scanner s = new Scanner(stream).useDelimiter("\\A");

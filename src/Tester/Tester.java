@@ -12,8 +12,9 @@ import java.util.ArrayList;
 
 
 /**
+ * Tester is responsible for testing APIcomm class to make sure the http request is returning the appropriate response. 
  *
- * @author cancola
+ * @author Roberto Aguilar
  */
 public class Tester {
     
@@ -23,7 +24,7 @@ public class Tester {
         User user = null ;
         Location location;
         
-        user = myComm.createAccount("user320", "pass", "Bob", "Smith");
+        user = myComm.createAccount("user320"/*must be uniqe String*/, "pass", "Bob", "Smith");
         try{
             System.out.println("Testing create account. New user Name is "+user.userName+"\n");
         }

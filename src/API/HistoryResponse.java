@@ -9,8 +9,10 @@ import DataModel.Location;
 import java.util.ArrayList;
 
 /**
- *
- * @author cancola
+ * HistoryResponse is responsible for holding the http request status and hold a ArrayList of Location.
+ * This class is used to communicate data from the backend API to the app.  
+ * 
+ * @author Roberto Aguilar
  */
 public class HistoryResponse extends Response{
 

@@ -8,8 +8,10 @@ package API;
 import DataModel.User;
 
 /**
+ * UserResponse is responsible for holding the http request status and hold a User object.
+ * This class is used to communicate data from the backend API to the app.
  *
- * @author cancola
+ * @author Roberto Aguilar
  */
 public class UserResponse extends Response{
     

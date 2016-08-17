@@ -6,8 +6,10 @@
 package API;
 
 /**
+ * Response is responsible for holding the http request status.
+ * This class is used to communicate data from the backend API to the app.
  *
- * @author cancola
+ * @author Roberto Aguilar
  */
 public class Response {
     
